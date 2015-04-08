@@ -46,8 +46,17 @@
     // our center controller, and optionally left and right controllers!
     if ( self.storyboard != nil )
     {
-        // Required segue "mm_center".  Uncaught exception if undefined in storyboard.
-        [self performSegueWithIdentifier: @"mm_center" sender: self];
+        // Optional segue "mm_center".
+        @try
+        {
+            [self performSegueWithIdentifier: @"mm_center" sender: self];
+        }
+        @catch (NSException *exception)
+        {
+        }
+        @finally
+        {
+        }
 
         // Optional segue "mm_left".
         @try
